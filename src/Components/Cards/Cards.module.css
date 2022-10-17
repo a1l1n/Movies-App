@@ -1,0 +1,88 @@
+.container {
+    display: block;
+    justify-content: center;
+    height: 270px;
+    width: 200px;
+    margin: 10px auto 0 auto;
+    border: 3px solid transparent;
+    background-color: rgba(245, 245, 245, 0.808);
+    border-image: linear-gradient(to bottom, orange, rgb(200, 4, 218)) 1;
+}
+
+.cardsImage {
+    display: flex;
+    position: relative;
+    z-index: 1;
+    justify-content: center;
+    margin-top: 10px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 0;
+    height: 230px;
+    max-width: 150px;
+}
+
+.button {
+    display: flex;
+    position: relative;
+    z-index: 2;
+    justify-content: center;
+    margin-top: 5px;
+    margin-left: -1px;
+    bottom: 245px;
+   }
+
+.btn {
+    height: 25px;
+    width: 201px;
+    color: white;
+    background-color: #121619d3;
+    font-weight: bolder;
+    border: none;
+    cursor: pointer;
+}
+
+.textContainer{
+    display: grid;
+    position: relative;
+    z-index: 3;
+    height: 247px;
+    width: 201px;
+    max-height: 247px;
+    justify-content: center;
+    bottom: 240px;
+    margin: none;
+    color: transparent;
+    font-family:Verdana, Geneva, Tahoma, sans-serif}
+
+.mTitle{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    font-size: 21px;
+    width: 150px;
+    height: 185px;
+    max-height: 185px;
+    font-weight: bolder;
+}
+
+.mType, .mYear {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 20px;
+}
+
+.textContainer:hover {
+    background-color: #2b3238cc;
+    color: white;
+    text-shadow: 0 0 3px #cccccc;
+    margin-left: -1px;
+    margin-top: -1px;
+}
+
+.mTitle:hover {
+    max-height: 185px;
+}
+

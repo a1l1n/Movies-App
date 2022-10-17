@@ -1,0 +1,21 @@
+body {  
+    height: 100%;
+    width: 100%;
+    padding: none;
+    margin: none;
+    background-image: url("./Fondo2.jpg");
+    background-size: 100%;
+    background-attachment: fixed;
+}
+
+.container, .cardsContainer {
+    height: 580px;
+    width: 1200px;
+    margin-top: 20px;
+    margin-left: auto;
+    margin-right: auto;
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    margin-left: auto;
+    margin-right: auto;
+}

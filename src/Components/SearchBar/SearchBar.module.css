@@ -1,0 +1,35 @@
+@import url('https://fonts.googleapis.com/icon?family=Material+Icons');
+
+.btn { 
+    position: absolute;
+    font-size: 30px;
+    width: 40px;
+    height: 34px;
+    margin-top: auto;
+    margin-bottom: auto;
+    background-color: #121619d3;
+    color: whitesmoke;
+    border: 1px solid whitesmoke;
+    cursor: pointer;
+};
+
+.btn:hover {
+    border: 1px solid transparent;
+    border-image: linear-gradient(to bottom, rgba(100, 110, 245, 0.822), rgba(218, 4, 93, 0.363)) 1;
+    background-color: pink;
+}
+
+.container{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+.input {
+    height: 30px;
+    width: 300px;
+    border: 1px solid white;
+}
+

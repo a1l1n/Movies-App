@@ -1,0 +1,6 @@
+export const GET_MOVIES = "GET_MOVIES";
+export const ADD_MOVIES_FAV = "ADD_MOVIES_FAV";
+export const REMOVE_MOVIE_FAV = "REMOVE_MOVIE_FAV";
+export const GET_MOVIE_DETAIL = "GET_MOVIE_DETAIL";
+export const CLEAN_DETAILS = "CLEAN_DETAILS";
+export const CLEAN_MOVIES = "CLEAN_MOVIES";

@@ -1,0 +1,43 @@
+.infoContainer{
+    display: flex;
+    height: 580px;
+    width: 1200px;
+    margin: 30px auto auto auto;
+    padding: auto;
+    border: 3px solid;
+    border-image: linear-gradient(to bottom, rgb(116, 231, 235), rgb(4, 218, 68)) 1;
+    background-color: #e6e6e6bd; 
+};
+
+.cardImage {
+    position: absolute;
+    height: 400px;
+    margin-top: auto;
+    margin-bottom: auto;
+    left: 20px;
+    margin-right: 20px;
+    top: 20px;
+}
+
+.btnContainer{
+    display: block;
+    background-color: aqua;
+}
+
+.idButton {
+    height: 45px;
+    width: 130px;
+    background-color: red;
+} 
+
+.textContainer {
+/*     display: block;
+    position: relative; 
+    z-index: 1;*/
+    height: 500px;
+    width: 700px;
+    margin-left: 20px;
+    margin-top: auto;
+    margin-bottom: auto;
+    background-color: pink;
+}
