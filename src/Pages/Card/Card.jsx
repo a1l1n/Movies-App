@@ -1,7 +1,9 @@
 import React, {useEffect} from 'react';
 import { useDispatch, useSelector } from "react-redux";
 import { useParams, useNavigate } from 'react-router-dom';
-import { movieDetail, addFavMovie, cleanDetail, cleanMovies } from "../../Redux/Actions";
+import { movieDetail, addFavMovie, addWatchedMov, addToWatchMov, cleanDetail, cleanMovies } from "../../Redux/Actions";
+import { MdDone, MdFavoriteBorder, MdPlaylistAdd } from "react-icons/md";
+import Swal from 'sweetalert2'
 import Styles from "./Card.module.css";
 
 
@@ -15,15 +17,26 @@ export default function Card(){
         dispatch(movieDetail(idMovie))
     }, [dispatch, idMovie]);
 
-    function addTitle(movie){ //---------------------------------------------------------------
-        dispatch(addFavMovie(movie));
-        alert("Movie saved in Favs!")
-       }
+    
+    function addWatched(movieInfo){
+        dispatch(addWatchedMov(movieInfo))
+        Swal.fire("This Movie is saved in your list of Watched!")
+      }; 
+
+    function addTitle(movieInfo){ //---------------------------------------------------------------
+        dispatch(addFavMovie(movieInfo));
+        Swal.fire("This Movie is saved in Favs!")
+       };
+
+    function addToWatch(movieInfo){
+        dispatch(addToWatchMov(movieInfo))
+        Swal.fire("This Movie is saved in your 'To Watch' list!")
+      };
 
     function goBack(){ //----------------------------------------------------------------------
         dispatch(cleanDetail());
         dispatch(cleanMovies());
-        navigate("/");
+        navigate("/home");
     };
 
     return (
@@ -31,35 +44,55 @@ export default function Card(){
             <div className={Styles.idContainer}>
                 <img className={Styles.cardImage} src={movieInfo.Poster} alt="Movie Cover" />
             </div>
-
             <div className={Styles.textContainer}>
-                <p>{`Title: ${movieInfo.Title}`}</p>
-                <p>{`Released: ${movieInfo.Released}`}</p>
-                <p>{`Runtime: ${movieInfo.Runtime}`}</p>
-                <p>{`Genre: ${movieInfo.Genre}`}</p>
-                <p>{`Director: ${movieInfo.Director}`}</p>
-                <p>{`Writer: ${movieInfo.Writer}`}</p>
-                <p>{`Actors: ${movieInfo.Actors}`}</p>
-                <p>{`Lenguage: ${movieInfo.Lenguage}`}</p>
-                <p>{`Awards: ${movieInfo.Awards}`}</p>
-                {`Plot: ${movieInfo.Plot}`}
-            </div>
-         
+                <span><p>Title:</p>{`${movieInfo.Title}`}</span>
+                <span><p>Released:</p> {`${movieInfo.Released}`}</span>
+                <span><p>Runtime: </p>{`${movieInfo.Runtime}`}</span>
+                <span><p>Genre: </p>{`${movieInfo.Genre}`}</span>
+                <span><p>Director: </p>{`${movieInfo.Director}`}</span>
+                <span><p>Writer: </p>{`${movieInfo.Writer}`}</span>
+                <span><p>Actors: </p>{`${movieInfo.Actors}`}</span>
+                <span><p>Lenguage: </p>{`${movieInfo.Lenguage}`}</span>
+                <span><p>Awards: </p>{`${movieInfo.Awards}`}</span>
+                <div className={Styles.plot}><p>Plot </p>{`${movieInfo.Plot}`}</div>
+            </div> 
             <div className={Styles.btnBack}>
-                <button className={Styles.idButton} onClick={() => goBack()}>Go Back</button>
+                <button className={Styles.idButton} onClick={() => goBack()}>Back to Home</button>
             </div>
 
             <div className={Styles.btnFavs}>
+            <button
+                className={Styles.watchedBtn} 
+                onClick={() => addWatched(
+                {title: movieInfo.title, 
+                idMovie: idMovie,
+                type: movieInfo.type,
+                year: movieInfo.year,
+                poster: movieInfo.Poster})}><MdDone />
+            </button>
+
                 <button
-                className={Styles.btn}
+                className={Styles.favBtn}
                 onClick={()=> addTitle(
                 {title: movieInfo.title, 
                 idMovie: idMovie,
                 type: movieInfo.type,
                 year: movieInfo.year,
-                poster: movieInfo.Poster})}
-                > Favs
+                poster: movieInfo.Poster})}><MdFavoriteBorder />
                 </button>
+
+                <button
+                className={Styles.toWatchBtn}
+                onClick={() => addToWatch(
+                {title: movieInfo.title,
+                idMovie: idMovie,
+                type: movieInfo.type,
+                year: movieInfo.year,
+                poster: movieInfo.Poster
+                })}>
+                <MdPlaylistAdd />
+                </button>
+            
             </div>
         </div>
     )

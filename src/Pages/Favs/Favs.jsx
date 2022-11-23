@@ -1,4 +1,5 @@
 import React from "react";
+import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link, useNavigate } from "react-router-dom";
 import { removeFavMovie, cleanMovies } from "../../Redux/Actions";
@@ -6,6 +7,10 @@ import Styles from "./Favs.module.css"
 
 export default function Favs(){
     const favourites = useSelector(state => state.favMov);
+    const watched = useSelector(state => state.watchedMov);
+    const toWatch = useSelector(state => state.toWatchMov);
+    const allMovies = [...favourites, ...watched, ...toWatch];
+    console.log("Esto es allMovies: ", allMovies)
     const dispatch = useDispatch();
     const navigate = useNavigate();
 
@@ -16,14 +21,14 @@ export default function Favs(){
 
     function goBack(){
         dispatch(cleanMovies());
-        navigate("/");
+        navigate("/home");
     };
 
     return(
         <div>
-            <h1>This are Your Favourites Movies</h1>
+            <h1>Your Movie List</h1>
                 {
-                favourites?.map(movie => {
+                allMovies?.map(movie => {
                     return (
                     <div className={Styles.cardContainer}>
                         <Link to={`/movie/${movie.idMovie}`}>

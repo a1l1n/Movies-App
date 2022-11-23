@@ -22,7 +22,7 @@ function movieSubmit(e){
     e.preventDefault();
     dispatch(getMovies(title));
     setTitle("");
-    navigate("/");
+    navigate("/movie-list");
 }
 
     return(

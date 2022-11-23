@@ -1,10 +1,10 @@
 body {  
-    height: 100%;
+    height: 80%;
     width: 100%;
     padding: none;
     margin: none;
     background-image: url("./Fondo2.jpg");
-    background-size: 100%;
+    background-size: cover;
     background-attachment: fixed;
 }
 
@@ -19,3 +19,5 @@ body {
     margin-left: auto;
     margin-right: auto;
 }
+
+/* 1060 px es el máximo para antes de que se deforme todo -> responsive */

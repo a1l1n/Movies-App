@@ -1,6 +1,8 @@
 import axios from "axios";
 import { GET_MOVIES, 
+    ADD_MOVIES_TO_WATCHED,
     ADD_MOVIES_FAV,
+    ADD_MOVIES_TO_WATCH,
     REMOVE_MOVIE_FAV,
     GET_MOVIE_DETAIL,
     CLEAN_DETAILS,
@@ -23,6 +25,14 @@ export function getMovies(title){
     };
 };
 
+// Add movies to Watched List -------------------------------------------------------------------
+export function addWatchedMov(movie){
+    return {
+        type: ADD_MOVIES_TO_WATCHED,
+        payload: movie
+    }
+};
+
 // Add some movies to Favs ----------------------------------------------------------------------
 export function addFavMovie(movie){
     return {
@@ -30,6 +40,14 @@ export function addFavMovie(movie){
         payload: movie
     }
 };
+
+// Add movies to To Watch List ------------------------------------------------------------------
+export function addToWatchMov(movie) {
+    return {
+        type: ADD_MOVIES_TO_WATCH,
+        payload: movie
+    }
+}
 
 // Delete movies from Favs ----------------------------------------------------------------------
 export function removeFavMovie(movie){

@@ -1,7 +1,7 @@
 .cContainer {
     height: 580px;
     width: 1200px;
-    background-color: rgba(196, 195, 195, 0.616);
-    border: 3px solid transparent;
-    border-image: linear-gradient(to bottom, orange, rgb(200, 4, 218)) 1;
+    background-color: rgba(255, 255, 255, 0.712);
+     border: 15px solid rgba(255, 255, 255, 0.836);
+/*     border-image: linear-gradient(to bottom, orange, rgb(200, 4, 218)) 1; */
 };

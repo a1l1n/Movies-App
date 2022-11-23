@@ -1,43 +1,116 @@
+/* BUTTONS ---------------------------------------------------- */
+
+.btnBack {
+    position: absolute;
+    z-index: 2;
+    top: 80%;
+    left: 8%;
+
+} 
+
+.idButton {
+    width: 160px;
+    height: 30px;
+    font-size: 15px;
+    font-weight: bold;
+    border: transparent;
+    cursor: pointer;
+    background-color: transparent;
+}
+
+.idButton:hover {
+    border-bottom: solid 2px rgb(4, 218, 68);
+    font-weight: bold;
+    color:  rgb(11, 175, 60);;
+}
+
+.btnFavs {
+    position: absolute;
+    display: flex;
+    flex-direction: row;
+    z-index: 2;
+    top: 5%;
+    left: 80%
+}
+
+.favBtn, .watchedBtn, .toWatchBtn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 60px;
+    height: 40px;
+    font-size: 25px;
+    border: none;
+    background-color: transparent;
+}
+
+.watchedBtn:hover {
+    color: rgba(28, 221, 86, 0.74);
+
+}
+
+.favBtn:hover {
+    color: #ea00ff;
+}
+
+.toWatchBtn:hover {
+    color: rgb(86, 197, 199);
+}
+
+
+/* CONTAINER -------------------------------------------------- */
 .infoContainer{
+    position: absolute;
+    z-index: 1;
     display: flex;
     height: 580px;
-    width: 1200px;
-    margin: 30px auto auto auto;
+    width: 65%;
+    left: 18%;
+    margin-top: 20px;
     padding: auto;
     border: 3px solid;
     border-image: linear-gradient(to bottom, rgb(116, 231, 235), rgb(4, 218, 68)) 1;
-    background-color: #e6e6e6bd; 
-};
+    /* background-color: #e6e6e6bd;  */
+    background-color: rgba(255, 255, 255, 0.767);
+}
 
+/* CARD ---------------------------------------------------------- */
 .cardImage {
-    position: absolute;
-    height: 400px;
-    margin-top: auto;
-    margin-bottom: auto;
-    left: 20px;
+    position: relative;
+    max-width: 260px;
+    top: 8.8%;
+    margin-left: 10%;
     margin-right: 20px;
-    top: 20px;
 }
-
-.btnContainer{
-    display: block;
-    background-color: aqua;
-}
-
-.idButton {
-    height: 45px;
-    width: 130px;
-    background-color: red;
-} 
 
 .textContainer {
-/*     display: block;
-    position: relative; 
-    z-index: 1;*/
     height: 500px;
-    width: 700px;
-    margin-left: 20px;
+    width: 30%px;
+    margin-left: 5%;
+    margin-right: 20px;
     margin-top: auto;
     margin-bottom: auto;
-    background-color: pink;
 }
+
+.textContainer span{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    height: 40px;
+}
+
+.textContainer p {
+    font-weight: bold;
+    margin-right: 10px;
+}
+
+.plot {
+    height: 150px;
+    flex-direction: initial;
+}
+
+.plot p {
+    margin-top: 20px;
+    border-bottom: 2px solid rgb(206, 204, 204);
+}
+

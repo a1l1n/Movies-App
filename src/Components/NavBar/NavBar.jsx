@@ -10,12 +10,12 @@ export default function NavBar(){
     return(
         <>
         <div className={Styles.container}>
-            <h1 className={Styles.name}> Henry's Movies App </h1>
+            <h1 className={Styles.name}> My Movies List </h1>
           <div className={Styles.sbar} >
             <SearchBar />
           </div>
           <div className={Styles.links}>
-            <Link className={Styles.linkStyle} to="/">Home</Link>
+            <Link className={Styles.linkStyle} to="/home">Home</Link>
             <Link className={Styles.linkStyle} to="/favs">Favs</Link> 
             <Link className={Styles.linkStyle} to="/about">About</Link> 
           </div>

@@ -1,3 +1,40 @@
+/* BUTTONS ----------------------------------------------------- */
+.buttons {
+    display: flex;
+    position: relative; 
+    z-index: 2;
+    justify-content: center;
+    margin-top: 5px;
+    margin-left: -1px;
+    bottom: 244px;
+    background-color: #121619d3; 
+   }
+
+.favsBtn, .watchedBtn, .toWatchBtn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 25px;
+    width: 70px;
+    color: white;
+    background-color: #12161900; 
+    font-weight: bolder;
+    margin: none;
+    border: none;
+    cursor: pointer;
+}
+
+.watchedBtn:hover {
+    background-color: rgba(26, 201, 79, 0.74);
+}
+.favsBtn:hover {
+    background-color: rgb(200, 4, 218);
+}
+
+.toWatchBtn:hover {
+    background-color: rgb(25, 119, 207);
+}
+
 .container {
     display: block;
     justify-content: center;
@@ -22,25 +59,6 @@
     max-width: 150px;
 }
 
-.button {
-    display: flex;
-    position: relative;
-    z-index: 2;
-    justify-content: center;
-    margin-top: 5px;
-    margin-left: -1px;
-    bottom: 245px;
-   }
-
-.btn {
-    height: 25px;
-    width: 201px;
-    color: white;
-    background-color: #121619d3;
-    font-weight: bolder;
-    border: none;
-    cursor: pointer;
-}
 
 .textContainer{
     display: grid;
