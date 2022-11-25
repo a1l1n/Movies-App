@@ -9,6 +9,10 @@ import Styles from "./Card.module.css";
 
 export default function Card(){
     const movieInfo = useSelector(state => state.detailMov);
+    const movieFav = useSelector(state => state.favMov);
+    const movieWatched = useSelector(state => state.watchedMov);
+    const movieToWatch = useSelector(state => state.toWatchMov);
+
     const dispatch = useDispatch();
     const { idMovie } = useParams(); 
     const navigate = useNavigate();
@@ -33,11 +37,19 @@ export default function Card(){
         Swal.fire("This Movie is saved in your 'To Watch' list!")
       };
 
+      function saveToLocalStorage (items){
+        localStorage.setItem("")
+      }
+
     function goBack(){ //----------------------------------------------------------------------
         dispatch(cleanDetail());
         dispatch(cleanMovies());
         navigate("/home");
     };
+
+    localStorage.setItem("Card_WatchedMovies", JSON.stringify(movieWatched));
+    localStorage.setItem("Card_FavMovies", JSON.stringify(movieFav));
+    localStorage.setItem("Card_toWatchMovies", JSON.stringify(movieToWatch));
 
     return (
         <div className={Styles.infoContainer}>

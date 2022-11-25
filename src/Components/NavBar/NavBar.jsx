@@ -10,7 +10,7 @@ export default function NavBar(){
     return(
         <>
         <div className={Styles.container}>
-            <h1 className={Styles.name}> My Movies List </h1>
+            <h1 className={Styles.name}> VideoCheck </h1>
           <div className={Styles.sbar} >
             <SearchBar />
           </div>

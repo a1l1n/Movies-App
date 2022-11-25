@@ -10,7 +10,7 @@ export default function Favs(){
     const watched = useSelector(state => state.watchedMov);
     const toWatch = useSelector(state => state.toWatchMov);
     const allMovies = [...favourites, ...watched, ...toWatch];
-    console.log("Esto es allMovies: ", allMovies)
+    
     const dispatch = useDispatch();
     const navigate = useNavigate();
 
@@ -23,6 +23,11 @@ export default function Favs(){
         dispatch(cleanMovies());
         navigate("/home");
     };
+
+    localStorage.getItem("Favs_watchedMovies", JSON.stringify(watched));
+    localStorage.getItem("Favs_favsMovies", JSON.stringify(favourites));
+    localStorage.getItem("Favs_toWatchMovies", JSON.stringify(toWatch));
+
 
     return(
         <div>
@@ -54,11 +59,3 @@ export default function Favs(){
         </div>
     )
 };
-
-/* 
- <li key={idMovie} >
-                            <Link to={`/movie/${movie.idMovie}`}>{movie.title}</Link>
-                            {console.log("Esto es idMovie: ", movie.idMovie)}
-                            <button onClick={() =>removeTitle(movie.idMovie)}>X</button>
-                        </li>
-*/
