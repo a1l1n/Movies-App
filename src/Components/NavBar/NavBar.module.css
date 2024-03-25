@@ -1,52 +1,256 @@
-
-.container{
+.container {
+    position: fixed;
+    z-index: 10;
     width: 100%;
-    height: 70px;
-    background-color: #121619d3;
+    height: 80px;
     display: flex;
     flex-direction: row;
-    justify-content: center;
+    justify-content: space-around;
     align-items: center;
+    transition: 0.8s;
+/*     background-color: #121619c2; */
+    background-color: #12161991;
+    box-shadow: 0px 6px 16px -8px rgba(0,0,0,0.75);
+}
+
+.navbar_logo_container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    width: 13rem;
+    height: 50px;
+}
+
+.navbar_logo_text {
+    position: absolute;
+    top: 0;
+    margin-left: 3rem;
+    opacity: 0;
+    animation: slideFromTop 1s forwards; 
+}
+
+@keyframes slideFromTop {
+    from {
+        transform: translateX(-50%);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
 }
 
 .name {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.733);
     height: 30px;
-    width: 19%;
-    font-size: 20px;
+    padding-left: 10px;
+    padding-top: 0.7rem;
+    color: rgba(255, 255, 255, 0.733);
     display: flex;
     flex-direction: row;
-    margin-left: 10px;
-    margin-right: 230px;
-    color: rgb(252, 241, 241);
-    align-items: center;
     justify-content: center;
-    border: 1px solid white;
-    box-shadow: 6px 8px 5px #121619bb;
+    align-items: center;
+    font-size: 20px;
+    letter-spacing: 0.2rem;
+    text-shadow: 3px 3px 3px rgba(0, 0, 0, 0.5);
+    
 }
 
-.links {
+@keyframes revealText {
+    0% {
+      color: rgba(255, 255, 255, 0); 
+      transform: translateX(-100%); 
+    }
+    100% {
+      color: white;
+      transform: translateX(0); 
+    }
+  }
+
+.navbar_links {
+    width: 23rem;
     display: flex;
-    margin-left: 10%; 
+    justify-content: space-between;
+    letter-spacing: 0.1rem;
 }
 
-.linkStyle{
+.linkStyle {
     height: 30px;
-    width: 80px;
-    font-size: 17px;
+    width: 6rem;
+    font-size: 15px;
     display: flex;
-    color:white;
+    color: rgba(255, 255, 255, 0.733);
     align-items: center;
     justify-content: center;
-    margin-left: 15px;
-    margin-right: 15px;
     border: 2px solid transparent;
     text-decoration: none;
+    transition: 0.5s;
+    border-radius: 3px;
 }
 
-.linkStyle:hover{
+.linkStyle:hover {
     color: white;
-    background-color: #404a50f6; 
+    transition: 0.5s;
     border: 2px solid transparent;
-    border-image: linear-gradient(to bottom, rgba(100, 110, 245, 0.822), rgba(218, 4, 93, 0.363)) 1;
+    border-image: linear-gradient(to bottom, rgba(114, 33, 245, 0.822), rgba(218, 4, 93, 0.692)) 1;
     box-shadow: 6px 8px 4px #121619f6;
-};
+    letter-spacing: 0.18rem;
+}
+
+.link_selected_style {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 6rem;
+    text-decoration: none;
+    color: white;
+    transition: 0.5s;
+    letter-spacing: 0.18rem;
+    border-bottom: 2px solid rgb(192, 9, 85);
+}
+
+.navbar_hidden_searchBar {
+    display: none;
+}
+
+.navbar_show_searchBar {
+    width: 20rem;
+}
+
+.navbar_toggle {
+    display: none;
+}
+
+/* RESPONSIVE ------------------------------------------------------ */
+
+@media screen and (max-width: 1000px) {
+    .navbar_show_container {  
+        position: fixed;
+        z-index: 10;
+        width: 100%;
+        height: 80px;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+        align-items: center;
+        transition: 0.8s;
+        justify-content: space-around;
+        align-items: center;
+        transition: 0.8s;
+        background-color: #121619ef;
+    }
+
+    .navbar_logo {        
+        padding-bottom: 0.4rem;
+    }
+
+    .navbar_links {
+        display: none;
+    }
+
+    .navbar_view_searchBar {
+        position: fixed;
+        width: 100%;
+    }
+
+    .navbar_show_searchBar {
+        position: fixed;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        top: 79px;
+        width: 100%;
+        height: 100px;        
+        background-color: #121619ef;
+        transition: 0.8s;
+    }
+
+    .navbar_drop_searchBar {
+        display: none;
+    }
+
+    .navbar_bottom_links, .navbar_show_links {
+        position: fixed;
+        justify-content: space-around;
+        align-items: center;
+        display: flex;
+        height: 90px;
+        width: 100%;
+        background-color: #121619ef;
+        box-shadow: 0px 6px 16px -8px rgba(0,0,0,0.75);
+        padding-left: 2rem;
+    }
+
+    .navbar_bottom_links {
+        top: 80px;
+        right: 0;
+    }
+
+    .navbar_show_links {
+        top: 178px;
+        right: 0;
+    }
+
+    .navbar_searchBar {
+        display: none;
+    }
+
+    .navbar_toggle {
+        width: 2.3em;
+        height: 1.5em;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: space-between;
+        cursor: pointer;
+        transition: 0.8s;
+    }
+
+    .navbar_burguer, .navbar_burger_clicked {
+        background-color: rgba(255, 255, 255, 0.733);;
+        width: 2.3em;
+        height: 0.1em;
+        border-radius: 0.5em;
+    }
+
+    .navbar_burguer {
+        transform: rotate(0) translate(0);
+        transition: cubic-bezier(0.175, 0.885, 0.32, 1.275) 0.5s;
+    }
+
+    .navbar_burger_clicked:nth-child(1) {
+        transform: rotate(45deg) translate(0.3em, .6em);
+        transition: ease-out 0.5s;
+        background: linear-gradient(to right, rgba(114, 33, 245, 0.822), rgba(153, 91, 252, 0.822));
+    }
+
+    .navbar_burger_clicked:nth-child(2) {
+        transform: scale(0.1);
+        transition: ease-out 0.5s;
+    }
+
+    .navbar_burger_clicked:nth-child(3) {
+        transform: rotate(135deg) translate(-0.4em, .7em);
+        transition: ease-out 0.5s;
+        background:  rgb(192, 9, 85);
+    }
+}
+
+@media screen and (max-width: 400px) {
+    .name {
+        padding-left: 15px;
+    }
+
+    .navbar_show_links {
+        padding-left: 0.5rem;
+        justify-content: space-around;
+    }
+
+    .linkStyle {
+        width: 5rem;
+    }
+
+    .link_selected_style {
+        width: 5rem;
+    }
+}

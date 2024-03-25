@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { Link } from 'react-router-dom';
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css"; 
@@ -8,11 +8,10 @@ import Styles from  "./ImageSliders.module.css";
 export default function ImageSliders({images}){
 
   var settings = {
-    dots: true,
+    dots: false,
     infinite: true,
-    /* speed: 500, */
-    slidesToShow: 3,
-    slidesToScroll: 4,
+    slidesToShow: 5,
+    slidesToScroll: 1,
     initialSlide: 0,
     autoplay: true,
     speed: 5000,
@@ -20,18 +19,18 @@ export default function ImageSliders({images}){
     cssEase: "linear",
     responsive: [
       {
-        breakpoint: 1024,
+        breakpoint: 1290,
         settings: {
-          slidesToShow: 3,
+          slidesToShow: 4,
           slidesToScroll: 3,
           infinite: true,
           dots: true
         }
       },
       {
-        breakpoint: 600,
+        breakpoint: 1170,
         settings: {
-          slidesToShow: 2,
+          slidesToShow: 3,
           slidesToScroll: 2,
           initialSlide: 2
         }
@@ -51,9 +50,11 @@ export default function ImageSliders({images}){
       <Slider {...settings}>
         {
           images.map((mov) => (
-            <Link to={`/movie/${mov.id}`}>
+            <Link className={Styles.cards_link_container} to={`/movie/${mov.id}`}>
               <img src={mov.pic} alt={mov.title} className={Styles.cardPoster}/>
             </Link>
+/*               <div className={Styles.card_image_container}>
+            </div> */
           ))
         }
       </Slider>

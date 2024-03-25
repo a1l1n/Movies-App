@@ -1,0 +1,140 @@
+.box {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 70px;
+}
+
+.filters {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 4rem;
+    width: 79%;
+    margin-top: 3rem;
+}
+
+.moviesContainer {
+    width: 80%;
+    margin-top: 0.5rem;
+    margin-left: auto;
+    margin-right: auto;
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 8rem;
+}
+
+.buttons {
+    display: flex;
+    position: relative; 
+    justify-content: center;
+    z-index: 5;
+    background-color: #121619d3; 
+    transition: 0.8s;
+    bottom: 248px
+}
+
+.favs_watchedBtn,
+.favs_favBtn,
+.favs_towatchBtn,
+.favs_deleteBtn,
+.favs_watchedActiveBtn,
+.favs_favActiveBtn,
+.favs_toWatchActiveBtn  {
+    width: 50px;
+    height: 1.6rem;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    background-color: #121619d3; 
+    color: white;
+    border: none;
+    transition: 0.8s;
+}
+
+.favs_watchedBtn:hover {
+    transition: 0.8s;
+    background-color: rgba(40, 255, 104, 0.74);
+}
+
+.favs_favBtn:hover {
+    transition: 0.8s;
+    background-color: rgb(236, 24, 255);
+}
+
+.favs_towatchBtn:hover {
+    transition: 0.8s;
+    background-color: rgb(45, 154, 255);
+}
+
+.favs_deleteBtn:hover {
+    transition: 0.8s;
+    background-color: rgba(248, 62, 62, 0.856);
+}
+
+.favs_watchedActiveBtn {
+    color: rgba(40, 255, 104, 0.74);
+    font-size: 18px;
+}
+
+.favs_favActiveBtn {
+    color: rgb(236, 24, 255);
+    font-size: 18px;
+}
+
+.favs_toWatchActiveBtn {
+    color: rgb(45, 154, 255);
+    font-size: 18px;
+}
+
+/* RESPONSIVE -------------------------------------------------- */
+
+@media screen and (max-width: 1290px) {
+    .moviesContainer {
+        grid-template-columns: repeat(4, 1fr);
+        transition: 0.5s;
+    }
+}
+
+@media screen and (max-width: 1100px) {
+    .moviesContainer {
+        width: 90%;
+        transition: 0.5s;
+    }
+}
+
+@media screen and (max-width: 1000px) {
+    .moviesContainer {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+@media screen and (max-width: 900px) {
+    .filters {
+        width: 90%;
+    }
+}
+
+@media screen and (max-width: 750px) {
+    .moviesContainer {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media screen and (max-width: 500px) {
+    .moviesContainer {
+        grid-template-columns: repeat(1, 1fr);
+    }
+}
+
+@media screen and (max-width: 430px) {
+    .filters {
+        width: 95%;
+    }
+} 

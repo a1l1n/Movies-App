@@ -13,3 +13,13 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+.sweet-background {
+  background-color: rgb(30, 38, 110) !important;
+  color: rgba(255, 255, 255, 0.87) !important;
+  box-shadow: 4px 6px 4px #12161975 !important;
+}
+
+.sweet-confirm {
+  background-color: rgb(61, 248, 117) !important;
+}

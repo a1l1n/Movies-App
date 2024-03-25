@@ -1,98 +1,84 @@
-/* BUTTONS ---------------------------------------------------- */
+/* CONTAINER -------------------------------------------------- */
+.infoContainer {
+    display: flex;
+    position: relative;
+    width: 100%;
+    padding-top: 5rem;
+}
+
+.card_container {
+    display: flex;
+    position: relative;
+    z-index: 1;
+    width: 70%;
+    min-height: 650px;
+    margin-top: 3rem;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 8rem;
+    border: 3px solid;
+    border-image: linear-gradient(to bottom, rgb(116, 231, 235), rgb(4, 218, 68)) 1;
+    box-shadow: 4px 6px 4px #12161975;
+    color: rgba(255, 255, 255, 0.822);
+    background-color: #12161991;
+}
+
+.idContainer {
+    position: relative;
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-width: 21.25rem;
+}
+
+.cardImage {
+    position: relative;
+    display: flex;
+    margin-top: 3rem;
+    width: 16.25rem;
+    box-shadow: 4px 6px 4px #1216199d;
+}
 
 .btnBack {
-    position: absolute;
-    z-index: 2;
-    top: 80%;
-    left: 8%;
-
+    display: flex;
+    align-items: center;
+    justify-content: center;
 } 
 
 .idButton {
     width: 160px;
-    height: 30px;
+    margin-top: 3rem;
     font-size: 15px;
     font-weight: bold;
     border: transparent;
     cursor: pointer;
     background-color: transparent;
+    color: rgba(255, 255, 255, 0.822);
+    transition: 0.8s;
+    letter-spacing: 0.03rem;
 }
 
 .idButton:hover {
+    transition: 0.8s;
     border-bottom: solid 2px rgb(4, 218, 68);
     font-weight: bold;
-    color:  rgb(11, 175, 60);;
-}
-
-.btnFavs {
-    position: absolute;
-    display: flex;
-    flex-direction: row;
-    z-index: 2;
-    top: 5%;
-    left: 80%
-}
-
-.favBtn, .watchedBtn, .toWatchBtn {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 60px;
-    height: 40px;
-    font-size: 25px;
-    border: none;
-    background-color: transparent;
-}
-
-.watchedBtn:hover {
-    color: rgba(28, 221, 86, 0.74);
-
-}
-
-.favBtn:hover {
-    color: #ea00ff;
-}
-
-.toWatchBtn:hover {
-    color: rgb(86, 197, 199);
-}
-
-
-/* CONTAINER -------------------------------------------------- */
-.infoContainer{
-    position: absolute;
-    z-index: 1;
-    display: flex;
-    height: 580px;
-    width: 65%;
-    left: 18%;
-    margin-top: 20px;
-    padding: auto;
-    border: 3px solid;
-    border-image: linear-gradient(to bottom, rgb(116, 231, 235), rgb(4, 218, 68)) 1;
-    /* background-color: #e6e6e6bd;  */
-    background-color: rgba(255, 255, 255, 0.767);
-}
-
-/* CARD ---------------------------------------------------------- */
-.cardImage {
-    position: relative;
-    max-width: 260px;
-    top: 8.8%;
-    margin-left: 10%;
-    margin-right: 20px;
+    color:  rgb(233, 255, 240);
+    letter-spacing: 0.1rem;
 }
 
 .textContainer {
+    position: relative;
     height: 500px;
-    width: 30%px;
-    margin-left: 5%;
+    width: 620px;
+    margin-left: 2rem;
+    padding-right: 2rem;
     margin-right: 20px;
     margin-top: auto;
     margin-bottom: auto;
 }
 
-.textContainer span{
+.textContainer span {
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -102,6 +88,8 @@
 .textContainer p {
     font-weight: bold;
     margin-right: 10px;
+    letter-spacing: 0.05rem;
+    color: white;
 }
 
 .plot {
@@ -111,6 +99,73 @@
 
 .plot p {
     margin-top: 20px;
-    border-bottom: 2px solid rgb(206, 204, 204);
+    border-bottom: 2px solid rgba(106, 230, 143, 0.76);
 }
+
+/* BUTTONS ---------------------------------------------------- */
+
+.btnFavs {
+    position: absolute;
+    display: flex;
+    flex-direction: row;
+    z-index: 2;
+    right: 2rem;
+    width: 12rem;
+}
+
+.favBtn, 
+.watchedBtn, 
+.toWatchBtn, 
+.watchedActiveBtn,
+.favActiveBtn,
+.toWatchActiveBtn {
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 60px;
+    height: 40px;
+    font-size: 25px;
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+    transition: 0.5s;
+}
+
+.watchedActiveBtn {
+    color: rgb(61, 248, 117);
+    border-bottom: 1px solid rgb(61, 248, 117);
+}
+
+.favActiveBtn {
+    color: #ea00ff;
+    border-bottom: 1px solid #ea00ff;
+}
+
+.toWatchActiveBtn {
+    color: rgb(65, 252, 255);
+    border-bottom: 1px solid rgb(65, 252, 255);
+    
+}
+
+.watchedBtn:hover {
+    color: rgb(61, 248, 117);
+    transition: 0.5s;
+    border-bottom: 1px solid rgb(61, 248, 117);
+
+}
+
+.favBtn:hover {
+    color: #ea00ff;
+    transition: 0.5s;
+    border-bottom: 1px solid #ea00ff;
+}
+
+.toWatchBtn:hover {
+    color: rgb(65, 252, 255);
+    transition: 0.5s;
+    border-bottom: 1px solid rgb(65, 252, 255);
+}
+
+/* RESPONSIVE ------------------------------------------------------- */
 

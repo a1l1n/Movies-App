@@ -1,23 +1,116 @@
-body {  
-    height: 80%;
+.container {
+    display: flex;
+    flex-direction: column;
     width: 100%;
-    padding: none;
-    margin: none;
-    background-image: url("./Fondo2.jpg");
-    background-size: cover;
+    margin: auto;
+    padding-top: 5rem;
+}
+
+.home_searchBar_container {
+    background-image: url(../../Img/Background.jpg);
     background-attachment: fixed;
+    filter: saturate(1.5) grayscale(0);
+    height: 35rem;
+    display: flex;
+    flex-direction: column;
 }
 
-.container, .cardsContainer {
-    height: 580px;
-    width: 1200px;
-    margin-top: 20px;
-    margin-left: auto;
-    margin-right: auto;
-    display: grid;
-    grid-template-columns: repeat(5, 1fr);
-    margin-left: auto;
-    margin-right: auto;
+.home_searchBar_card {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    background-color: #12161991;
 }
 
-/* 1060 px es el máximo para antes de que se deforme todo -> responsive */
+.home_text_container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    animation: revealText 1.5s ease-in-out forwards; 
+    opacity: 1;
+    margin-left: 4rem;
+}
+
+.home_text_container h1 {
+    font-size: 70px;
+    font-weight: 900;
+    letter-spacing: 0.5rem;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.home_searchBar_container h1, h2 {
+    text-shadow: 3px 3px 3px rgba(0, 0, 0, 0.5);
+}
+
+.home_searchBar_container h2 {
+    letter-spacing: 0.2rem;
+    font-weight: 400;
+    font-size: 35px;
+}
+
+@keyframes revealText {
+    0% {
+      color: rgba(255, 255, 255, 0); 
+      transform: translateY(-15%); 
+    }
+    100% {
+      color: white;
+      transform: translateY(0); 
+    }
+  }
+
+  .home_recom_container {
+      position: relative;
+      z-index: 1;
+      width: 100%;
+      height: 40rem;
+      color: white;
+      display: flex;
+      flex-direction: column;
+      background-color: #12161991;
+  }
+
+  .home_recom_icon {
+      position: relative;
+      z-index: 1;
+      display: flex;
+      flex-direction: row-reverse;
+      bottom: 13rem;
+      width: 96%;
+      height: 20px;
+  }
+
+  .home_recom_icon svg {
+      width: 320px;
+      height: 320px;
+      transition: 0.5s;
+  }
+
+  .home_youtube_container {
+      display: flex;
+      flex-direction: column;
+  }
+
+  .home_trailer_container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-around;
+  }
+
+  .home_trailer_card {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      width: 400px;
+      height: 450px;
+      background-color:#12161991;
+  }
+
+/* RESPONSIVE -------------------------------------- */
+@media screen and (max-width: 500px) {
+    .home_searchBar_card {
+        width: 90%;
+    }
+}

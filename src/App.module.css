@@ -1,8 +1,8 @@
-.separator {
-    height: 3px;
-    width: 100%;
-    background-image: linear-gradient(
-        rgb(182, 11, 11),
-        rgb(255, 174, 0)
-    );
+body {
+    background: linear-gradient(to right, #058085, #201b5f);
+}
+
+.navbar {
+    position: relative;
+    z-index: 10;
 }

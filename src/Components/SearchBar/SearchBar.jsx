@@ -1,44 +1,50 @@
 import React from "react";
 import { useState } from "react";
 import { useDispatch } from "react-redux";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useLocation } from "react-router-dom";
 import { getMovies } from "../../Redux/Actions";
-import Image from "./search-icon.png.webp"
-import Styles from "../SearchBar/SearchBar.module.css"
+import Styles from "../SearchBar/SearchBar.module.css";
 
 export default function SearchBar(){
+    const location = useLocation();
+    const dispatch = useDispatch();
+    const navigate = useNavigate();
     
-// Estados -> useState: is a Hook that lets you add React state to function components
-const [title, setTitle] = useState("");
-const dispatch = useDispatch();
-const navigate = useNavigate();
+    const [title, setTitle] = useState("");
+    const homeLocation = location.pathname;
 
-function handleChange(e) {
-    e.preventDefault();
-    setTitle(e.target.value)
-};
+    function handleChange(e) {
+        e.preventDefault();
+        setTitle(e.target.value)
+    };
 
-function movieSubmit(e){
-    e.preventDefault();
-    dispatch(getMovies(title));
-    setTitle("");
-    navigate("/movie-list");
-}
+    function movieSubmit(e){
+        e.preventDefault();
+        dispatch(getMovies(title));
+        setTitle("");
+        navigate("/movie-list");
+    }
 
-    return(
-        <div className={Styles.container}>
-            <form onSubmit={(e) => movieSubmit(e)}>
+    return (
+        <div>
+            <form className={Styles.search_form} onSubmit={(e) => movieSubmit(e)}>
                 <input 
-                className={Styles.input}
+                className={
+                    homeLocation === '/home' ? Styles.sb_home_location
+                    : Styles.sb_input}
                 onChange={handleChange}
                 value={title}
                 type="text"
-                placeholder="Search a movie..."
+                placeholder="Search a title..."
                 autoComplete="on"
                 onSubmit={(e) => movieSubmit(e)}
                 required
                 />
-                <button type="submit" className={Styles.btn}  >
+                <button 
+                type="submit" 
+                className={
+                    homeLocation === '/home' ? Styles.sb_home_btn_location
+                    : Styles.btn}>
                     <i className="material-icons">search</i>
                 </button>
             </form>

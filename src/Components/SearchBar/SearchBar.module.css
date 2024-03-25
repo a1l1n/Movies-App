@@ -1,35 +1,108 @@
 @import url('https://fonts.googleapis.com/icon?family=Material+Icons');
 
-.btn { 
-    position: absolute;
-    font-size: 30px;
-    width: 40px;
-    height: 34px;
-    margin-top: auto;
-    margin-bottom: auto;
+.search_form {
+    display: flex;
+    position: relative;
+    flex-direction: row;
+    align-items: center;
+    box-shadow: 0px 6px 16px -8px rgba(0,0,0,0.75);
+}
+
+.sb_home_location,
+.sb_input {
+    outline: none;
+    color: white;
+    transition: 0.8s;
+}
+
+.sb_home_location {
+    border: 2px solid rgb(255, 0, 106);
+    height: 2.5rem;
+    width: 25rem;
+    padding-left: 2rem;
+    margin-top: 2rem;
+    color: black;
+    font-size: 18px;
+    background-color: rgba(255, 255, 255, 0.863);
+}
+
+.sb_input {
+    background-color: #12161991;
+    height: 30px;
+/*     border: 2px solid  rgba(255, 255, 255, 0.363); */
+    border: 1px solid rgb(255, 0, 106);
+    width: 20rem;
+    padding-left: 10px;
+}
+
+.sb_home_btn_location,
+.btn {
+    position: relative;
     background-color: #121619d3;
     color: whitesmoke;
-    border: 1px solid whitesmoke;
+    border: 1px solid rgb(255, 0, 106);
+/*     border: 1px solid rgba(255, 255, 255, 0.363); */
     cursor: pointer;
-};
+    transition: 0.3s;
+}
 
+.sb_home_btn_location {
+    height: 2.8rem;
+    width: 2.8rem;
+    margin-top: 2rem;
+    border: 2px solid rgb(255, 0, 106);
+}
+
+.btn { 
+    font-size: 30px;
+    width: 34px;
+    height: 34px;
+}
+
+.sb_home_btn_location:hover,
 .btn:hover {
-    border: 1px solid transparent;
+    transition: 0.5s;
+    border: 2px solid transparent;
     border-image: linear-gradient(to bottom, rgba(100, 110, 245, 0.822), rgba(218, 4, 93, 0.363)) 1;
-    background-color: pink;
+    background-color: rgba(73, 248, 190, 0.575);
 }
 
-.container{
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-    position: relative;
+/* RESPONSIVE ----------------------------------------------------- */
+@media screen and (max-width: 900px) {
+    .sb_home_location {
+        width: 22rem;
+    }
 }
 
-.input {
-    height: 30px;
-    width: 300px;
-    border: 1px solid white;
+@media screen and (max-width: 900px) {
+    .sb_home_location {
+        width: 18rem;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .sb_home_location {
+        width: 15rem;
+        height: 2rem;
+        font-size: 16px;
+    }
+
+    .sb_home_btn_location {
+        height: 2.3rem;
+        width: 2.3rem;
+    }
+}
+
+@media screen and (max-width: 500px) {
+    .sb_home_location {
+        width: 12rem;
+    }
+}
+
+@media screen and (max-width: 450px) {
+    .sb_input {
+        width: 15rem;
+        transition: 0.8s;
+    }
 }
 

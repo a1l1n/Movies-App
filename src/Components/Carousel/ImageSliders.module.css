@@ -1,6 +1,26 @@
+
 .cardPoster {
-    height: 500px;
-    margin-top: 30px;
+    display: flex;
+    position: relative;
+    z-index: 1;
+    justify-content: center;
+    margin-top: 10px;
     margin-left: auto;
     margin-right: auto;
+    margin-bottom: 0;
+    height: 90%;
+    height: 290px;
+    padding: 1rem;
+    background-color: #12161991;
+    box-shadow: 4px 6px 4px #1216199d;
+    border: 3px solid transparent;
+    border-image: linear-gradient(to bottom, rgb(255, 207, 118), rgb(200, 4, 218)) 1;  
+    transition: 0.5s; 
 }
+
+.cardPoster:hover {
+    margin-bottom: 2rem;
+    transform: scale(1.05, 1.05);
+}
+
+

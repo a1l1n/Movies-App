@@ -12,7 +12,6 @@ export default function MovieList() {
         movies?.map(m => {
           return (
               <Cards
-              className={Styles.cardsContainer}
               key={m.imdbID}
               idMovie={m.imdbID}
               title={m.Title}

@@ -11,14 +11,14 @@ import pic9 from "../Images/9.jpg";
 
 
 export default [
-    {title: "pet_semantary", id: "tt0098084", pic: pic0}, 
-    {title: "matrix", id: "tt0133093", pic: pic1}, 
-    {title: "lady_snowblood", id: "tt0158714", pic: pic2}, 
-    {title: "brave", id: "tt1217209", pic: pic3}, 
-    {title: "itaewon_class", id: "tt11239552", pic: pic4}, 
-    {title: "back_future", id: "tt0088763", pic: pic5}, 
-    {title: "painted_veil", id: "tt0446755", pic: pic6}, 
-    {title: "devs", id: "tt8134186", pic: pic7}, 
-    {title: "neon_demon", id: "tt1974419", pic: pic8}, 
-    {title: "crazy_ex", id: "tt4094300", pic: pic9}
+    {title: "pet_semantary", id: "tt0098084", type: "movie", year: "1989", pic: pic0}, 
+    {title: "matrix", id: "tt0133093", type: "movie", year: "1999", pic: pic1}, 
+    {title: "lady_snowblood", id: "tt0158714", type: "movie", year: "1973", pic: pic2}, 
+    {title: "brave", id: "tt1217209", type: "movie", year: "2012", pic: pic3}, 
+    {title: "itaewon_class", id: "tt11239552", type: "series", year: "2020", pic: pic4}, 
+    {title: "back_future", id: "tt0088763", type: "movie", year: "1985", pic: pic5}, 
+    {title: "painted_veil", id: "tt0446755", type: "movie", year: "2007", pic: pic6}, 
+    {title: "devs", id: "tt8134186", type: "series", year: "2020", pic: pic7}, 
+    {title: "neon_demon", id: "tt1974419", type: "movie", year: "2016", pic: pic8}, 
+    {title: "crazy_ex", id: "tt4094300", type: "series", year: "2015", pic: pic9}
     ];

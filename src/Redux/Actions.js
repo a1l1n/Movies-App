@@ -4,9 +4,11 @@ import { GET_MOVIES,
     ADD_MOVIES_FAV,
     ADD_MOVIES_TO_WATCH,
     REMOVE_MOVIE_FAV,
+    REMOVE_MOVIE_WATCHED,
+    REMOVE_MOVIE_TOWATCH,
     GET_MOVIE_DETAIL,
     CLEAN_DETAILS,
-    CLEAN_MOVIES } from "./Constants";
+    DELETE_MOVIE } from "./Constants";
 
 const apikey = process.env.REACT_APP_API_KEY;
 
@@ -27,25 +29,40 @@ export function getMovies(title){
 
 // Add movies to Watched List -------------------------------------------------------------------
 export function addWatchedMov(movie){
-    return {
-        type: ADD_MOVIES_TO_WATCHED,
-        payload: movie
+    return (dispatch, getState) => {
+        dispatch({
+            type: ADD_MOVIES_TO_WATCHED,
+            payload: movie
+        });
+        
+        const watched = getState().watchedMov;
+        localStorage.setItem("watchedMov", JSON.stringify(watched))
     }
 };
 
 // Add some movies to Favs ----------------------------------------------------------------------
 export function addFavMovie(movie){
-    return {
-        type: ADD_MOVIES_FAV,
-        payload: movie
+    return (dispatch, getState) => {
+        dispatch({
+            type: ADD_MOVIES_FAV,
+            payload: movie
+        });
+
+        const fav = getState().favMov;
+        localStorage.setItem("favMov", JSON.stringify(fav))
     }
 };
 
 // Add movies to To Watch List ------------------------------------------------------------------
 export function addToWatchMov(movie) {
-    return {
-        type: ADD_MOVIES_TO_WATCH,
-        payload: movie
+    return (dispatch, getState) => {
+        dispatch({
+            type: ADD_MOVIES_TO_WATCH,
+            payload: movie
+        });
+
+        const toWatch = getState().toWatchMov;
+        localStorage.setItem("toWatchMov", JSON.stringify(toWatch))
     }
 }
 
@@ -56,6 +73,22 @@ export function removeFavMovie(movie){
         payload: movie
     }
 };
+
+// Delete movies from Watched  ----------------------------------------------------------------------
+export function removeWatchedMovie(movie) {
+    return {
+        type: REMOVE_MOVIE_WATCHED,
+        payload: movie
+    }
+};
+
+// Delete movies from To Watch ----------------------------------------------------------------------
+export function removeToWatchMovie(movie) {
+    return {
+        type: REMOVE_MOVIE_TOWATCH,
+        payload: movie
+    }
+}
 
 // Go to Movie Details --------------------------------------------------------------------------
 export function movieDetail(idMovie){
@@ -81,9 +114,20 @@ export function cleanDetail(){
 };
 
 // Clean Movies  -------------------------------------------------------------------------------
-export function cleanMovies(){
-    return {
-        type: CLEAN_MOVIES,
-        payload: {}
-    }
+export function deleteMovie(idMovie, listType){
+    return (dispatch, getState) => {
+        // Eliminar la película del estado global
+        dispatch({
+            type: DELETE_MOVIE,
+            payload: { idMovie, listType }
+        });
+
+        // Obtener la lista actualizada después de eliminar la película
+        const updatedList = getState()[listType];
+        console.log("Actions - esti es listType: ", listType)
+        console.log("Actions - esto es updatedList: ", updatedList)
+
+        // Guardar la lista actualizada en el localStorage
+        localStorage.setItem(listType, JSON.stringify(updatedList));
+    };
 }

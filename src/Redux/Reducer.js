@@ -3,15 +3,20 @@ import { GET_MOVIES,
         ADD_MOVIES_FAV,
         ADD_MOVIES_TO_WATCH,
         REMOVE_MOVIE_FAV,
+        REMOVE_MOVIE_WATCHED,
+        REMOVE_MOVIE_TOWATCH,
         GET_MOVIE_DETAIL, 
         CLEAN_DETAILS, 
-        CLEAN_MOVIES } from "./Constants";
+        DELETE_MOVIE } from "./Constants";
 
+/* const watchedMoviesFromStorage = JSON.parse(localStorage.getItem("watchedMov")) || [];
+const favMoviesFromStorage = JSON.parse(localStorage.getItem("favMov")) || [];
+const toWatchMoviesFromStorage = JSON.parse(localStorage.getItem("toWatchMov")) || []; */
 
 const initialState = {
-    watchedMov: [],
-    favMov: [],
-    toWatchMov: [],
+    watchedMov: JSON.parse(localStorage.getItem("watchedMov")) || [],
+    favMov: JSON.parse(localStorage.getItem("favMov")) || [],
+    toWatchMov: JSON.parse(localStorage.getItem("toWatchMov")) || [],
     loadMov: [],
     detailMov: {}
 };
@@ -21,7 +26,7 @@ export default function reducer(state = initialState, action){
         case GET_MOVIES:
             return {
                 ...state,
-                loadMov: action.payload
+                loadMov: action.payload,
             };
         case ADD_MOVIES_TO_WATCHED: 
             return {
@@ -31,7 +36,7 @@ export default function reducer(state = initialState, action){
         case ADD_MOVIES_FAV:
             return {
                 ...state,
-                favMov: state.favMov.concat(action.payload)
+                 favMov: state.favMov.concat(action.payload) 
             };
         case ADD_MOVIES_TO_WATCH:
             return {
@@ -43,6 +48,16 @@ export default function reducer(state = initialState, action){
                 ...state,
                 favMov: state.favMov.filter(m => m.idMovie !== action.payload.idMovie)
             };
+        case REMOVE_MOVIE_WATCHED :
+            return {
+                ...state, 
+                watchedMov: state.watchedMov.filter(m => m.idMovie !== action.payload.idMovie)
+            };
+        case REMOVE_MOVIE_TOWATCH: 
+            return {
+                ...state,
+                toWatchMov: state.toWatchMov.filter(m => m.idMovie !== action.payload.idMovie)
+            }
         case GET_MOVIE_DETAIL:
             return {
                 ...state,
@@ -53,11 +68,16 @@ export default function reducer(state = initialState, action){
                 ...state,
                 detailMov: {}
             };
-        case CLEAN_MOVIES:
-            return {
+        case DELETE_MOVIE:
+            const { idMovie, listType } = action.payload;
+            const updatedMovies = state[listType].filter(movie => movie.idMovie !== idMovie);
+            localStorage.setItem(listType, JSON.stringify(updatedMovies));
+            const newState = {
                 ...state,
-                loadMov: []
+                [listType]: updatedMovies
             }
+            console.log("Reducer - esto es newState: ", newState)
+            return newState;
         default:
             return {... state}
     }
